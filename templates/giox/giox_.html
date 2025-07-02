@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+  <titie><h1>GIOX HOME PAGE</h1></titie>
+  <link rel="stylesheet" type="style/css" href="{% static 'giox/css/main.css' %}"/>
+  
+</head>
+<body>
+  <style> 
+    .g-layout{
+      display: flex;
+    }
+  
+    .header{
+        padding: 20px;
+        color: blue;
+        
+       
+        
+    }
+    .g-main{
+        
+            
+        background-color: darkolivegreen;
+    }
+    .sidebar{
+       background-color: blue;
+    }
+    .footer{
+         background-color: aquamarine;
+}
+  </style>
+  <div class="g-layout" style="display: flex;
+    
+      
+  ">
+  
+  <div class="g-main" >
+   
+   
+
+  </div>
+  <div class="g-sidebar" >
+    <p>This is Sidebar</p><em>
+    <a   href="{% url 'giox:giox_home'%}">Giox Page</a><br>
+     <a  href="{% url 'my_pasionate:my_pasio' %}">Pasio Page</a><br>
+     <a href="{% url 'account:acc_home' %}">Account</a><br>
+     <a href="{% url 'giox:create_blogPost' %}">BlogCreationPage</a><br>
+     <a href="{% url 'giox:getBlogPost'%}">Get-Me-List</a><br>
+    <a href="{% url 'posts:posts_home' %}">Post-Me-d</a><br>
+  </em>
+  <button type="menu" href="{% url 'account:acc_home' %}">Display accounts</button>
+  
+
+  </div>
+  <div class="g-footer" style="background-color: blueviolet;">
+    <p>&copy 2024 </p>
+
+  </div>
+     {% endblock content%}
+  </div>
+  
+
+    
+
+      
+   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+                    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+                    crossorigin="anonymous">
+   </script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+     
+     <script src="{% static 'giox/css/main.js' %}"></script>
+     <img src="{%  static 'img/icon-alert.svg' %}" alt="django-icon-alert.svg">
+     <script src="{% static 'admin/js/main.js' %}"></script>
+   </body>
+   
+   

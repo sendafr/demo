@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}blogPostForm{% endblock title%}
+
+{% block content %}
+<style type="style/css">
+  .create-form{
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+    margin: auto;
+  }
+  .submit-button{
+    max-width: 200px;
+  }
+
+</style>
+
+
+<div class="container">
+   <div class="row">
+      <di class="col-lg-7 offset-lg-1">
+        <form class="create-form" method="POST" enctype="multipart/form-data ">
+          {% csrf_token %}
+            
+            <!--title-->
+            <div class="form-group">
+              <label for="id_title">Title</label>
+              <input class="form-control" method="POST" enctype="multipart/form-data" type="text" name="title" placeholder="Title" required autofocus />
+            </div>
+
+            <!--body-->
+            <div class="form-group">
+              <label for="body" >Content</label>
+              <textarea class="form-control" rows="10" type="text" name="body" placeholder="
+              Thi blog is about..." required></textarea>
+            </div>
+
+            <!--image-->
+            <div class="form-group">
+              <label for="id_image">Image</label>
+              <input type="file" name="image" id="id_image" accept="image/*" required>
+            </div>
+
+            <!--submit btn-->
+            <button  class="submit-button btn btn-lg btn-primary btn-block" type="submit">Post</button>
+        </form>
+      </di>
+   </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+			  integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+			  crossorigin="anonymous">
+  $(document).on('submit', '#create-form', function(){
+       e.preventDefault();
+        $.ajax({
+          type:'POST',
+          url: "{% url 'giox:create_blogPost' %}",
+          data:{
+          title:$('#title').val(),
+          body:$('#body').val(),
+          author:$('#author').val(),
+          image:$('image').val(),
+          csrfmiddlewaretoken:$('input[title=csrfmiddleware token]').val(),
+        },
+        success:function(data){
+           alert(data);
+        }
+      });
+  });
+  
+</script>
+  
+{% endblock content %}
