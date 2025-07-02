@@ -1,0 +1,20 @@
+
+<!--{% extends 'base.html' %}
+
+
+{% block title %}QuestionAnswerForm{% endblock title %}
+{% block content %}
+    <h1> QuestionAnswer</h1>
+     {% for question in questions %}
+      {{title}}
+      {{question}}
+      {{answer}}
+      {{priority}}
+    {% endfor %}
+     <form method="POST">
+          {% csrf_token %}
+          {{form.as_p}}
+        <button type="submit">CreateQuestionAnswer</button>
+     </form>
+
+{% endblock %}

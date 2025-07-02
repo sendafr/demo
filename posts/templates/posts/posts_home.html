@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> federalis Website {% block title %}Posts Home Page {% endblock title %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/superhero/bootstrap.min.css">
+       <link href="{% static 'giox/css/main.css' %}" rel="stylesheet" type="text/css">
+       <link href="{% static 'giox/dashboard.css' %}" rel="styslesheet">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+  </head>
+  <body>
+    {% block content %}
+  <div class="posts-container">
+    <div class="posts-nav">
+      <h1>Post-Navbar</h1><hr>
+    <a class="posts-nav-a1" href="{% url 'posts:get_Posts' %}">Posts List</a><br>
+    <a class="posts-nav-a2"   href= "{% url 'posts:create_posts' %}">Post</a><br>
+    </div>
+    <div class="posts-main">
+      <div class="main-p">
+      <h1>Thi is the The Post Page</h1><hr>
+      </div>
+      <div class="post-list">
+        <h1>Posts-List</h1><hr>
+      </div>
+      <div class="post-graphics">
+        <h1>Graphics</h1><hr>
+      </div>
+    </div>
+    <div class="posts-footer">
+      <p>@Posts-Foooter</p>
+    </div>
+  </div>
+
+{%endblock content %}
+    
+    
+
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+                    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+                    crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+     
+    <script src="" async defer></script>
+  </body>
+</html>
+
+
+

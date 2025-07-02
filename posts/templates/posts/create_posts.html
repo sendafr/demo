@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} My post {% endblock title %}
+
+{% block content %}
+<div class="content-align-center">
+    <div class="col-5 mt-5">
+     <form method="post" enctype="multipart/form-data" id="post-my-form">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit">Post</button>
+      </form>
+      </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+			  integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+			  crossorigin="anonymous">
+    $(document).on('submit', '#post-my-form', function(){
+         e.preventDefault();
+            $.ajax({
+              type:'POST',
+              url: "{% url 'posts:create_posts' %}",
+              data:{
+              title:$('#title').val(),
+              body:$('#body').val(),
+              image:$('#image').val(),
+              update:$('#update').val(),
+              created:$('#created').val(),
+              csrfmiddlewaretoken:$('input[title=csrfmiddleware token]').val(),
+            },
+            success:function(data){
+            alert(data);
+            }
+
+        });
+    });
+  
+</script>
+  
+
+{% endblock content %}

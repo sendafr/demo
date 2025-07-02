@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<h1>List of Live Data</h1>
+<ul id="display-data">
+  
+
+
+</ul>
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+			  integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+			  crossorigin="anonymous">
+
+    console.log('Welcome to my list')          
+    $(document).ready(function() {
+        SetInterval(function(){
+          $.ajax({
+            type:'GET',
+            url:"{% url 'posts:get_Posts' %}",
+            success:function(response){
+                 console.log(response);
+                 $('#display').empty();
+                for(var key in response. posts){
+                var loop ,list ='<h2><li>' + response(posts[key].name) + '</li></h2>'
+                $("#display").append(temp);
+            };
+            error:function$(response);{
+              
+              alert("An Error Occurred")
+            };
+        },
+    },1000);
+
+  });
+
+
+
+
+});
+
+</script>
+
+
+{% endblock content %}

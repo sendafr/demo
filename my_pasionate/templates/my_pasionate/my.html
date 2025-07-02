@@ -1,0 +1,367 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <meta name="viewport" content="width=device-width initial-scale=1.0"/>
+    <link ref="stylesheet" type="style/css"/>
+    <title>Creating aA Website</title>
+    <style>
+        .parent{
+            padding: 20px;
+            display: grid;
+            grid-template-columns:1fr 1fr 1fr;
+            row-gap:20px;
+            column-gap: 20px; 
+        }
+        .item:nth-child(1){
+            font-size: 1.1rem;
+            grid-row: span 2;
+            display: grid;
+            align-content: center;
+        }
+        .item{
+            background-color: rgb(228,228,228);
+            padding: 20px;
+            font-size:0.77rem;
+            line-height: 1.7;
+        }
+        .item p {
+            margin:0;
+        }
+        .example-banner{
+            max-width: 900px;
+            height: 300px;
+            background-color: rgb(255, 222, 234);
+            margin:0 auto 24px auto;
+            display: grid;
+        }
+        .center{
+            margin: auto;
+            color: rgb(113, 113, 175);
+            font-size: 3rem;
+        }
+        .nav-bar{
+            width: 900px;
+            height: 30px;
+            background-color: rgb(0, 213, 255);
+            display: grid;
+           
+            
+        }
+        .nav-item{
+            color: #000;
+             margin: auto;
+        }
+        .full-width-example{
+           display: grid;
+           grid-template-columns: mimax(auto, 900px);
+           justify-content: center;
+           background-color: burlywood;
+           color: rgb(112, 86, 38 );
+           line-height: 1.7;
+           padding: 20px; 
+
+        }
+        .photo-example{
+            display: grid;
+            grid-template-columns: 1fr, 1fr, 1fr;
+            grid-template-rows: 100px 170px 50px;
+            max-width: 700px;
+            margin: 20px auto;
+
+        }
+        .photo-example img {
+            max-width: 100px;
+            display: block;
+        }
+        .overlay-text{
+            margin: 0;
+            color: #fff;
+            grid-column: 1/3 ;
+            background-color: rgb(0, 0, 0.300);
+            padding: 20px;
+            font-size:0.85rem;
+            line-height: 1.7;
+        }
+        .layout{
+            display: grid;
+            grid-template-columns: 1fr 2.5fr;
+            grid-template-areas: 
+            "header heeder"
+            "sidebar main"
+            "sidebar footer";
+            background-color: #2d1616;
+        }
+        .header{
+            padding: 20px;
+            color: blue;
+            background-color: darkcyan;
+            grid-area: header;
+        }
+        .main{
+            color: #ddd;
+            padding: 20px;
+            line-height: 1.7;
+            grid-area: main;
+            
+            background-color: darkolivegreen;
+        }
+        .sidebar{
+            grid-area: sidebar;
+            font-size: 0.8rem;
+            color: #999;
+            padding: 20px;
+            background-color: brown;
+        }
+        .footer{
+            grid-area: footer;
+            color: #fff;
+            padding: 15px;
+            background-color: cornflowerblue;
+
+        }
+        .responsive-example{
+            max-width: 1100px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            
+            
+        }
+        .responsive-item{
+            background-color: rgb(200, 230, 27);
+            padding: 20px;
+            color:rgb(90,145,123);
+            line-height: 1.7; 
+            overflow:auto;
+        }
+        .art-banner{
+            background-color: rgb(0, 80, 112);
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 20px 1fr 1fr 1fr 20px;
+            grid-template-rows: 20px 1fr 1fr 1fr 20px;
+
+
+        }
+        .art-banner-bg{
+            opacity: 0.1;
+            background:url("media/bg.jpeg") center center no-repeat;
+            background-size: cover;
+        }
+        .banner-text{
+            color: #fff;
+            font-size: 8vw;
+            font-weight: bold;
+            grid-column: 2/span 2;
+            grid-row: 3;
+            align-self: center;
+            justify-self: center;
+        }
+        .badge{ 
+            display: grid;
+            grid-column: 4/5;
+            grid-row: 3/4;
+            background-color: rgb(255,41,123);
+            color: #fff;
+            font-size: 2.5vw;
+            font-weight: bold;
+            width: 10vw;
+            height: 10vw;
+            border-radius: 50%;
+        }
+        .badge p {
+            margin: auto;
+            
+        }
+        .art-banner::before{
+            content: "";
+            opacity: 0.85;
+            border-top:5px solid rgb(255, 41, 123);
+            border-right: 5px solid rgb(255,41, 123);
+            grid-column: 4;
+            grid-row: 2 /span 2;
+
+        }
+        .art-banner::after{
+            content:"";
+            opacity: 0.85;
+            border-bottom: 5px solid rgb(255, 41, 123);
+            border-left: 5px solid rgb(255, 41, 123);
+            grid-column: 2;
+            grid-row: 3 /span 2;
+        }
+
+
+
+
+            
+            
+        
+            
+            
+        
+
+    </style>
+
+</head>
+<body>
+    <div class="nav-bar">
+        <nav class="nav-item">
+            my project
+        </nav>
+        
+    </div>
+    <div class="parent">
+        <div class="item">
+            <h1>Main Column</h1>
+            <p>Creating a Website to teach Federalism is a large an complex
+                , and can be broken into smaller manageble parts.
+               It invove several stages from Planning to Designing, development,
+               and Deployement.
+            </p>
+            <h2>Key Parts Of a Webapp</h2>
+        </div>
+        <div class="item" >
+           <p>To make the idea more imagenable,
+            
+                Back-end or Serve-side using Technologies eg Django to 
+                    developthe back-end Responsibilities
+                User Authentication and management which involves Signup, 
+                    Login and Roles like Students and Teachers
+                Content Management Like Quiz QnA and Othe Topics of 
+                    Educational Resource   
+         </p> 
+        </div>
+        <div class="item">
+            <p> Front-End
+                Technologies Framework like React.js,Or 
+                        Plain HTMl/CSS/JS  
+            </p>
+        </div>
+        <div class="item">
+           <p>Responsible for Creating
+            
+                A User Friendly Interface
+                Navigation through Lessons, Quiz
+                    and Othe Teaching Modules
+                Interactive Tools of Diagrams, Maps of
+                Federal gorvenment systems
+           </p>
+        </div>
+        <div class="item" >
+            <p> Database
+                
+                    Using Technologies like Postgreql,Mysql,SQLite
+                        Pre-integrated with Django
+                    
+                    Used to store User' information
+                    Educational content, Quiz Results   
+            </p>
+        </div>
+        <div class="item" >
+            <p>Features
+                
+                    Federalism Knowledge based
+                    Definition
+                    Principles lik Autonomy and Shared power
+                    Quiz an Tests
+                    Interactive Maps, diagrams representing Fedralism
+                    Progress tracker to moniter User' achievements
+            </p>
+        </div>
+        
+
+    </div>
+    <div class="example-banner">
+        <div class="center">
+            Hello
+            </div>
+    </div>
+    <div class="full-width-example">
+        <h2>development Steps</h2>
+        <p>Define Requirements & Scope</p>
+        <p>What Specification Do you want To Teach About Federalism!</p>
+        <p>What is your target Audience </p>
+
+    </div>
+    <div class="photo-example">
+        <img src="/ demo/giox/static giox/css/images/log1.png.png/" alt="log1."/>
+        <div class="overlay-text">
+            <p>Design the app, Plan the user journey from registration to dashboard-lesson quiz.</p>
+
+        </div>     
+    </div>
+    <div class="layout">
+        <div class="header">This is the header </div>
+        <div class="main">
+            <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p>
+            <p>Build and tie Components</p>
+           
+        </div>
+
+        <div class="sidebar">
+           
+            <p>This sidebar  has usful links and content.</p>
+            <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p>
+            <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p>
+            <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p>
+            <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p>
+            <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p>
+        </div>
+
+        <div class="footer">&copy 2021</div>
+
+    </div>
+      <div class="responsive-example" >
+ 
+    
+     <div class="responsive-item">
+        <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+     <div class="responsive-item">
+        <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+     
+    <div class="responsive-item">
+     <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+     <div class="responsive-item">
+     <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+      <div class="responsive-item">
+     <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+      <div class="responsive-item">
+     <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+      <div class="responsive-item">
+     <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+      <div class="responsive-item">
+     <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+      <div class="responsive-item">
+     <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+      <div class="responsive-item">
+     <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+      <div class="responsive-item">
+     <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+     <div class="responsive-item">
+     <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+      <div class="responsive-item">
+       <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+      <div class="responsive-item">
+     <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+      <div class="responsive-item">
+       <p>set up the framework Install django to create the back-end and connect it to the Front-end Framework e.g through django template engines</p></div>
+     
+    </div>
+    <div class="art-banner">
+        <div class="art">
+       
+        </div>
+        <div>
+         <img  class= "art-banner-bg"src="media/bg.jpeg" alt="bg"/> 
+        </div>
+        <div class="banner-text">
+          Hello there.
+        </div>
+        <div class="badge"><p>New!</p> </div>
+           
+    </div>
+</body>
+</html>
