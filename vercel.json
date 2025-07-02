@@ -1,0 +1,14 @@
+{
+    "builds":[{
+        "src":"demo/wsgi.py",
+        "use":"@vercel/python",
+        "config":{"maxlambadasize":"15mb",
+         "runtime":"python 3.13.1"
+
+        }
+    }],
+    "routes":[{
+        "src":"/(.*)",
+        "dest":"demo/wsgi.py"
+   } ]
+}
